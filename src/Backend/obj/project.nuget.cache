@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "rtTw0bHElkT1ZpIhDUeV1lANiCfjpPEReVWMzb2fF3hi9uzz5q1MU5fxMn6oAB3JHC4+SaeNPAcGed8dxGBf8A==",
+  "success": true,
+  "projectFilePath": "C:\\Projects\\ef_core_mediatr\\src\\Backend\\Backend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Loki\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Loki\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Loki\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\Loki\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\Loki\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\Loki\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
