@@ -2,7 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\Backend"
+    "\\src\\DataAccess",
+    "\\src\\DataAccess\\Models"
   ],
   "SelectedNode": "\\ef_core_mediatr.sln",
   "PreviewInSolutionExplorer": false

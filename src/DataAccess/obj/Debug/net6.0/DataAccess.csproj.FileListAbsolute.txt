@@ -1,4 +1,5 @@
 C:\Projects\ef_core_mediatr\src\DataAccess\bin\Debug\net6.0\DataAccess.deps.json
+C:\Projects\ef_core_mediatr\src\DataAccess\bin\Debug\net6.0\DataAccess.runtimeconfig.json
 C:\Projects\ef_core_mediatr\src\DataAccess\bin\Debug\net6.0\DataAccess.dll
 C:\Projects\ef_core_mediatr\src\DataAccess\bin\Debug\net6.0\ref\DataAccess.dll
 C:\Projects\ef_core_mediatr\src\DataAccess\bin\Debug\net6.0\DataAccess.pdb
@@ -9,3 +10,4 @@ C:\Projects\ef_core_mediatr\src\DataAccess\obj\Debug\net6.0\DataAccess.csproj.Co
 C:\Projects\ef_core_mediatr\src\DataAccess\obj\Debug\net6.0\DataAccess.dll
 C:\Projects\ef_core_mediatr\src\DataAccess\obj\Debug\net6.0\ref\DataAccess.dll
 C:\Projects\ef_core_mediatr\src\DataAccess\obj\Debug\net6.0\DataAccess.pdb
+C:\Projects\ef_core_mediatr\src\DataAccess\obj\Debug\net6.0\DataAccess.genruntimeconfig.cache

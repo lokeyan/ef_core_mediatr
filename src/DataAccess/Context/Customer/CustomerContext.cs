@@ -4,48 +4,68 @@ using DataAccess.Models;
 namespace DataAccess.Context
 {
     public class CustomerContext : DbContext
-    {
-        public DbSet<Customer> Customers { get; set;}
-        public DbSet<Subscription> Subscriptions { get; set; }
-
-        public CustomerContext(DbContextOptions options) : base(options)
+    {        public CustomerContext()
         {
 
         }
 
+        public CustomerContext(DbContextOptions<CustomerContext> options) : base(options)
+        {
+
+        }
+
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Subscription> Subscriptions { get; set; }
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite()
-             .EnableSensitiveDataLogging(true);
+            optionsBuilder.UseSqlite().EnableSensitiveDataLogging(true);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<Customer>()
-                .ToTable("Customers");
+            modelBuilder.Entity<Customer>(entity =>
+           {
+               entity.ToTable("Customers");
 
-            modelBuilder.Entity<Customer>()
-                .Property(c => c.Id)
-                .ValueGeneratedOnAdd();
+               entity.HasKey(c => c.Id);
 
-            modelBuilder.Entity<Customer>()
-                .HasKey(c => c.Id);
+               entity.Property(c => c.Id).ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<Customer>()
-                .Property(c => c.SubscriptionLevel)
-                .HasConversion<string>();
+               entity.Property(e => e.FirstName).HasColumnType("VARCHAR (100)");
 
-            modelBuilder.Entity<Subscription>()
-                .ToTable("SubscriptionLevels");
+               entity.Property(e => e.LastName).HasColumnType("VARCHAR (100)");
 
-            modelBuilder.Entity<Subscription>()
-                .HasKey(s => s.Id);
+               entity.Property(e => e.Email).HasColumnType("VARCHAR (100)");
 
-            modelBuilder.Entity<Customer>()
-                .HasOne(c => c.Subscription)
-                .WithMany()
-                .HasForeignKey(c => c.Subscription);
+               entity.Property(e => e.Phone).HasColumnType("VARCHAR (100)");
+
+               entity.Property(c => c.SubscriptionLevel).HasConversion<string>();
+
+               entity.HasOne(c => c.Subscription)
+                      .WithMany()
+                      .HasForeignKey(c => c.Subscription);
+           });
+
+            modelBuilder.Entity<Subscription>(entity =>
+           {
+               entity.ToTable("Subscriptions");
+
+               entity.HasKey(c => c.Id);
+
+               entity.Property(c => c.Id).ValueGeneratedOnAdd();
+
+               entity.Property(c => c.Name).HasColumnType("VARCHAR (100)");
+
+               entity.Property(c => c.PricePerMonth).HasColumnType("DECIMAL");
+
+               entity.Property(c => c.NumberOfSimultaneousDevices).HasColumnType("INTEGER");
+
+               entity.Property(c => c.NumberDevicesWithDownloadCapability).HasColumnType("INTEGER");
+
+           });            
 
             base.OnModelCreating(modelBuilder);
         }
