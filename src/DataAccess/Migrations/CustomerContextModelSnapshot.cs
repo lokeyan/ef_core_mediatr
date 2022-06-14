@@ -45,7 +45,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("SubscriptionLevel");
 
-                    b.ToTable("Customers", (string)null);
+                    b.ToTable("Customer", (string)null);
                 });
 
             modelBuilder.Entity("DataAccess.Models.Subscription", b =>
@@ -69,7 +69,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Subscriptions", (string)null);
+                    b.ToTable("Subscription", (string)null);
                 });
 
             modelBuilder.Entity("DataAccess.Models.Customer", b =>
@@ -77,7 +77,7 @@ namespace DataAccess.Migrations
                     b.HasOne("DataAccess.Models.Subscription", "Subscription")
                         .WithMany()
                         .HasForeignKey("SubscriptionLevel")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Subscription");

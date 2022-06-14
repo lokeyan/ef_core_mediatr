@@ -28,7 +28,11 @@ namespace Backend
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
+            using (var scope = app.ApplicationServices.CreateScope())
+            {
+                var basketContext = scope.ServiceProvider.GetRequiredService<CustomerContext>();
+                basketContext.Database.Migrate();
+            }
         }
     }
 }
