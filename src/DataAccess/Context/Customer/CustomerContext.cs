@@ -28,7 +28,7 @@ namespace DataAccess.Context
 
             modelBuilder.Entity<Customer>(entity =>
            {
-               entity.ToTable("Customers");
+               entity.ToTable("Customer");
 
                entity.HasKey(c => c.Id);
 
@@ -42,16 +42,17 @@ namespace DataAccess.Context
 
                entity.Property(e => e.Phone).HasColumnType("VARCHAR (100)");
 
-               entity.Property(c => c.SubscriptionLevel).HasConversion<string>();
+               entity.Property(c => c.SubscriptionLevel).HasConversion<int>();
 
                entity.HasOne(c => c.Subscription)
                       .WithMany()
-                      .HasForeignKey(c => c.Subscription);
+                      .HasForeignKey(c => c.SubscriptionLevel)
+                      .OnDelete(DeleteBehavior.Restrict);
            });
 
             modelBuilder.Entity<Subscription>(entity =>
            {
-               entity.ToTable("Subscriptions");
+               entity.ToTable("Subscription");
 
                entity.HasKey(c => c.Id);
 

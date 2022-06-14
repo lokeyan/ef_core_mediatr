@@ -9,8 +9,8 @@ public class Subscription
         Premium
     }
 
-    public int Id { get; set; }
-    public Level Name { get; set; }
+    public Level Id { get; set; }
+    public string Name { get; set; }
     public decimal PricePerMonth { get; set; }
     public int NumberOfSimultaneousDevices { get; set; }
     public int NumberDevicesWithDownloadCapability { get; set; }
