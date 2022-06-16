@@ -30,8 +30,8 @@ namespace Backend
         {
             using (var scope = app.ApplicationServices.CreateScope())
             {
-                var basketContext = scope.ServiceProvider.GetRequiredService<CustomerContext>();
-                basketContext.Database.Migrate();
+                var customerContext = scope.ServiceProvider.GetRequiredService<CustomerContext>();
+                customerContext.Database.Migrate();
             }
         }
     }
