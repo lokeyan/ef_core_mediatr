@@ -15,14 +15,15 @@ namespace Backend
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var sqliteConnection = Configuration.GetValue<string>("ConnectionStrings:SQLiteDb");
+            var sqliteConnection = Configuration.GetConnectionString("SQLiteDb");
 
-            var connection = new SqliteConnection(@$"Data Source={sqliteConnection}");
-
+            var connectionString = new SqliteConnection(@$"Data Source={sqliteConnection}");
+            
             services.AddDbContext<CustomerContext>(optBuilder =>
             {
-                optBuilder.UseSqlite(connection);
-                optBuilder.EnableSensitiveDataLogging(true);
+                optBuilder.UseSqlite(
+                    connectionString,
+                    x => x.MigrationsAssembly("DataAccess"));
             });
         }
 

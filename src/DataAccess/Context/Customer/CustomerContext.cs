@@ -1,12 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using DataAccess.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace DataAccess.Context
 {
     public class CustomerContext : DbContext
-    {        public CustomerContext()
-        {
+    {
 
+        public CustomerContext( )
+        {
         }
 
         public CustomerContext(DbContextOptions<CustomerContext> options) : base(options)
@@ -20,7 +22,7 @@ namespace DataAccess.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite().EnableSensitiveDataLogging(true);
+            optionsBuilder.UseSqlite();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
